@@ -1,10 +1,6 @@
 <template>
   <li class="files__item">
-    <div
-      :class="{files__folder: isFolder}"
-      @click="toggleFolder"
-    >
-
+    <div @click="toggleFolder" :class="{files__folder: isFolder}">
       <a :href="getUrl(path, packageFiles.name)" v-if="!isFolder" target="_blank" class="files__link">
         {{ packageFiles.name }}
       </a>
@@ -32,11 +28,11 @@ export default {
   props: {
     packageFiles: [Object, Array],
     isOpenRootFolder: Boolean,
+    packageNameAndVersion: String,
     path: {
       type: Array,
       default: () => []
     },
-    packageNameAndVersion: String,
   },
   data() {
     return {
